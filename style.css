@@ -3,7 +3,13 @@
   margin: 0;
 }
 
-.content {
+/* Temporary solution */
+/* for viewing */
+div { 
+  font-family: Arial, sans-serif;
+}
+
+.viewport {
   height: 512px;
   width: 100%;
   display: flex;
@@ -16,6 +22,10 @@
   width: 384px;
   height: 512px;
   background-color: #ddd;
+}
+
+.content {
+  padding: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -24,6 +34,22 @@
   align-self: center;
 }
 
+.container__header {
+  height: 32px;
+  font-size: 32px;
+}
+
 .task {
   margin-top: 8px;
+  font-size: 24px;
+  background-color: #eee;
+  width: 95%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
 }
+
+.task__text {
+  margin-left: 16px;
+}
+
