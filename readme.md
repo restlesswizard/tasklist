@@ -2,4 +2,4 @@
 
 ## ToDo
 
-[ ] Initial markup
+- [ ] Initial markup
