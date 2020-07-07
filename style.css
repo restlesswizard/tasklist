@@ -10,7 +10,7 @@ div {
 }
 
 .viewport {
-  height: 512px;
+  /* height: 512px; */
   width: 100%;
   display: flex;
   align-items: center;
@@ -22,6 +22,7 @@ div {
   width: 384px;
   max-height: 512px;
   background-color: #ddd;
+  border-radius: 16px;
 }
 
 .content {
@@ -87,5 +88,16 @@ input:checked + i::before {
   transform: scale(1);
 }
 
+.add-container-button {
+  width: 50px;
+  height: 50px;
+  background-color: #ddd;
+  border-radius: 16px;
+  margin-left: 16px;
+  align-self: flex-start;
+}
 
+.add-container-button::before {
+  content: '+';
+}
 
