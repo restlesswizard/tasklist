@@ -69,14 +69,25 @@ input:checked + i::before {
 }
 
 .add-container-button {
+  display: flex;
   width: 50px;
   height: 50px;
   background-color: #ddd;
   border-radius: 16px;
   margin-left: 16px;
   align-self: flex-start;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  cursor: pointer;
 }
 
-.add-container-button::before {
-  content: '+';
+.add-container-button:hover {
+  background-color: darkcyan;
+  transition: .5s;
+  outline-style: none;
+}
+
+.add-container-button:focus {
+  outline-style: none;
 }
