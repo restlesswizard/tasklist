@@ -7,9 +7,9 @@
 </head>
 <body>
   <div class="viewport">
-    <div class="container">
-      <div class="content">
-        <div class="container__header">tasklist-header</div>
+    <div class="card">
+      <div class="card__header">tasklist-header</div>
+      <div class="card__tasks">
         <div class="task">
           <label>
             <input type="checkbox">
@@ -24,15 +24,13 @@
           </label>
           <p class="task__text">task2</p>
         </div>
-        <div class="task">
-          <label>
-            <input type="checkbox">
-            <i></i>
-          </label>
-          <p class="task__text">task3</p>
-        </div>
       </div>
+      <div class="card__actions">
+        <button class="add-task-button">
+          <p class="task__text">add new task</p>
+        </button>
       </div>
+    </div>
       <button class="add-container-button">
         <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 0 24 24" width="36">
           <path d="M0 0h24v24H0z" fill="none"/>
@@ -41,5 +39,6 @@
       </button>
   </div>
   <script type="text/javascript" src="public/js/script.js"></script>
+  <script type="text/javascript" src="public/js/card.js"></script>
 </body>
 </html>
