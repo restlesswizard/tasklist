@@ -1,30 +1,26 @@
-.container {
+.card {
   width: 384px;
   max-height: 512px;
   background-color: #ddd;
   border-radius: 16px;
-}
-
-.content {
   padding: 16px;
   display: flex;
   flex-direction: column;
 }
 
-.container__header, .task {
+.card__header, .task {
   align-self: center;
 }
 
-.container__header {
+.card__header {
   height: 32px;
   font-size: 32px;
 }
 
-.task {
+.task, .add-task-button {
   margin-top: 8px;
   font-size: 24px;
   background-color: #eee;
-  width: 95%;
   padding: 8px;
   display: flex;
   align-items: center;
@@ -90,4 +86,10 @@ input:checked + i::before {
 
 .add-container-button:focus {
   outline-style: none;
+}
+
+.add-task-button {
+  width: 100%;
+  outline-style: none;
+  border: 0;
 }
