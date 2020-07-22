@@ -1,20 +1,17 @@
 'use strict';
 
-let __id = 0;
-let addCardButton = document.querySelector('.add-container-button');
-let container = document.querySelector('.container');
+let tasks = document.querySelector('.card__tasks');
+let addTask = document.querySelector('.add-task-button');
+const newTask = `
+  <div class="task">
+  <label>
+    <input type="checkbox">
+    <i></i>
+  </label>
+  <p class="task__text">task text</p>
+  </div>
+`;
 
-function createCard(card) {
-  return {
-    id: ++__id,
-    created_at: new Date(),
-    title: card.title,
-    task: card.task,
-    tableId = card.tableId,
-  }
-}
-
-addCardButton.addEventListener('click', function(event) {
-  createCard();
-
-})
+addTask.addEventListener('click', function(event) {
+  tasks.innerHTML += newTask;
+});
