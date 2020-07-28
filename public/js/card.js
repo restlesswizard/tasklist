@@ -36,6 +36,12 @@ addTask.addEventListener('click', function(event) {
   const input = document.querySelector('.input_task');
   const task = createTask({ text: input.value });
   const taskNode = createTaskNode(task);
-  appendTaskToCard(tasks, taskNode);
-  clearInputValue(input)
+
+  if (input.value === '') {
+    alert('Input field is empty!');
+  }
+  else {
+    appendTaskToCard(tasks, taskNode);
+    clearInputValue(input)
+  }
 });
