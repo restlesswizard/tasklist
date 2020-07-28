@@ -17,7 +17,14 @@
   font-size: 32px;
 }
 
-.task, .add-task-button {
+.card__actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  align-items: center;
+}
+
+.task {
   margin-top: 8px;
   font-size: 24px;
   background-color: #eee;
@@ -38,8 +45,13 @@ label {
   margin-left: 4px;
 }
 
-input {
+.input_checkbox {
   display: none;
+}
+
+.input_task {
+  height: 50px;
+  width: 75%
 }
 
 i {
@@ -92,5 +104,6 @@ input:checked + i::before {
   width: 100%;
   outline-style: none;
   border: 0;
-  margin-top: 24px;
+  width: 50px;
+  height: 50px;
 }
