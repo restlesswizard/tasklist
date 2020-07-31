@@ -19,17 +19,32 @@ function createTaskNode(task) {
 
 function createTask(task) {
   return {
-    id: ++__id,
+    id: new Date().getTime(),
     text: task.text,
   };
 }
 
 function appendTaskToCard(cardNode, taskNode) {
-  cardNode.innerHTML += taskNode;
+  cardNode.insertAdjacentHTML("beforeEnd", taskNode);
 }
 
 function clearInputValue(input) {
   input.value = '';
+}
+
+function addTaskToLocalStorage(task) {
+  const tasks = JSON.parse(localStorage.getItem('task')) || [];
+  tasks.push(task);
+  localStorage.setItem('task', JSON.stringify(tasks));
+}
+
+window.onload = function getAllTasks() {
+  const tasksArr = JSON.parse(localStorage.getItem('task')) || [];
+
+  tasksArr.forEach( function(text) {
+    const taskNode = createTaskNode(text);
+    appendTaskToCard(tasks, taskNode);
+  });
 }
 
 addTask.addEventListener('click', function(event) {
@@ -42,6 +57,9 @@ addTask.addEventListener('click', function(event) {
   }
   else {
     appendTaskToCard(tasks, taskNode);
-    clearInputValue(input)
+    clearInputValue(input);
   }
+
+  addTaskToLocalStorage(task);
+
 });
