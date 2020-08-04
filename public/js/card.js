@@ -3,13 +3,12 @@
 let tasks = document.querySelector('.card__tasks');
 let addTask = document.querySelector('.add-task-button');
 
-let __id = 0;
-
+//Шаблон. Хранит разметку таска.
 function createTaskNode(task) {
   return `
     <div class="task">
       <label>
-        <input class="input_checkbox" type="checkbox">
+        <input class="input_checkbox" type="checkbox" ${task.checked && 'checked'}>
         <i></i>
       </label>
       <p class="task__text">${task.text}</p>
@@ -17,27 +16,39 @@ function createTaskNode(task) {
   `;
 }
 
+//Фабрика. Создаёт структуру таска
+//В параметры передаётся таск из
+//обработчика addTask.addEventListener
+//Возвращает объект таска.
 function createTask(task) {
   return {
     id: new Date().getTime(),
     text: task.text,
+    checked: false,
   };
 }
 
+//Присоединяет новый таск
 function appendTaskToCard(cardNode, taskNode) {
   cardNode.insertAdjacentHTML("beforeEnd", taskNode);
 }
 
+//Очищает поле ввода
 function clearInputValue(input) {
   input.value = '';
 }
 
+//Добавляет объект таска в LS.
+//Разбирает все имеющиеся таски, засовывает
+//новый таск, и собирает обратно в строку
 function addTaskToLocalStorage(task) {
   const tasks = JSON.parse(localStorage.getItem('task')) || [];
   tasks.push(task);
   localStorage.setItem('task', JSON.stringify(tasks));
 }
 
+//После перезагрузки страницы восстанавливает
+//разметку всех хранящихся в LS тасков
 window.onload = function getAllTasks() {
   const tasksArr = JSON.parse(localStorage.getItem('task')) || [];
 
@@ -47,6 +58,7 @@ window.onload = function getAllTasks() {
   });
 }
 
+//Обработчик события "клик" по кнопке добавления таска
 addTask.addEventListener('click', function(event) {
   const input = document.querySelector('.input_task');
   const task = createTask({ text: input.value });
@@ -61,5 +73,4 @@ addTask.addEventListener('click', function(event) {
   }
 
   addTaskToLocalStorage(task);
-
 });
