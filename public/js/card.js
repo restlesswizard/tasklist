@@ -64,7 +64,18 @@ window.onload = function onMount() {
 }
 
 function onChange() {
-  console.log('works')
+  const allTasks = JSON.parse(localStorage.getItem('task'));
+  let taskId = event.target.id;
+  let checked = event.target.checked;
+
+  function getTaskIndex(task) {
+    return task.id == taskId;
+  }
+
+  const currentIndex = allTasks.findIndex(getTaskIndex)
+
+  allTasks[currentIndex].checked = checked;
+  localStorage.setItem('task', JSON.stringify(allTasks))
 }
 
 function attachEvent(task) {
