@@ -12,6 +12,7 @@ function createTaskNode(task) {
         <i></i>
       </label>
       <p class="task__text">${task.text}</p>
+      <button class="task-delete-button">X</button>
     </div>
   `;
 }
