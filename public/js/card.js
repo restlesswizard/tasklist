@@ -94,6 +94,7 @@ addTask.addEventListener('click', function(event) {
 
   if (input.value === '') {
     alert('Input field is empty!');
+    return
   }
   else {
     appendTaskToCard(tasks, taskNode);
